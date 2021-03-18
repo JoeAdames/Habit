@@ -1,13 +1,31 @@
 <template>
-<DayCard />
+<div>
+<Greeting v-if="this.greeted != true" @get-user-input='getUserInput'/>
+<Tracker v-if="this.greeted == true" :tracking='this.track' />
+</div>
 </template>
 <script>
-import DayCard from '@Day-card.vue'
-import DayCard from './components/Day-Card.vue'
+import Greeting from './components/Greeting'
+import Tracker from './components/Tracker'
 export default {
   name: 'App',
   components: {
-    DayCard
+    Greeting,
+    Tracker
+  },
+  emit: ['getUserInput'],
+  data () {
+    return {
+      track: String,
+      greeted: Boolean
+    }
+  },
+  methods: {
+    getUserInput (track) {
+      this.track = track
+      console.log(this.track)
+      this.greeted = true
+    }
   }
 }
 </script>
