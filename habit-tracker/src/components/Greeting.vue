@@ -1,9 +1,11 @@
 <template>
 <div>
 <div class="form-group">
-<label for="inputSmall">What would you like to track?</label>
+<label>What would you like to track?</label>
 <input v-model="userInput" />
-<button @click="$emit('getUserInput', this.userInput)">Submit</button>
+<label>For how many days?</label>
+<input v-model="userCount" />
+<button @click="$emit('getUserInput', this.userInput, this.userCount)">Submit</button>
 </div>
 </div>
 </template>

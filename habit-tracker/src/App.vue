@@ -1,7 +1,7 @@
 <template>
 <div>
 <Greeting v-if="this.greeted != true" @get-user-input='getUserInput'/>
-<Tracker v-if="this.greeted == true" :tracking='this.track' />
+<Tracker v-if="this.greeted == true" :tracking='this.track' :length='this.count' />
 </div>
 </template>
 <script>
@@ -17,13 +17,15 @@ export default {
   data () {
     return {
       track: String,
+      count: Number,
       greeted: Boolean
     }
   },
   methods: {
-    getUserInput (track) {
+    getUserInput (track, length) {
       this.track = track
-      console.log(this.track)
+      this.count = length
+      console.log(this.track, this.count)
       this.greeted = true
     }
   }
