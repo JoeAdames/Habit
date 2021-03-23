@@ -1,6 +1,6 @@
 <template>
-<div>
-<Card :title='this.tracking' :length='this.length'/>
+<div class="container">
+<Card :title='this.tracking' :count='this.count'/>
 </div>
 </template>
 <script>
@@ -12,9 +12,13 @@ export default {
   },
   props: {
     tracking: String,
-    length: Number
+    count: Number
   }
 }
 </script>
 <style>
+.container {
+  padding: 10px;
+  width: 100%;
+}
 </style>
